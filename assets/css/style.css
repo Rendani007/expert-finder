@@ -1,0 +1,33 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+main {
+    height: 100vh;
+}
+
+main .textForm {
+    color: #ffffff;
+}
+
+.avatar {
+    width: 48px;
+    height: auto;
+}
+
+.btn-whatsapp {
+    background-color: #25d366;
+    color: #ffffff;
+    transition: all ease-in-out 300ms;
+}
+
+.btn-whatsapp:hover {
+    background-color: #128c7e;
+    color: #ffffff;
+}
+
+p .textForm {
+    color: #ffffff;
+}

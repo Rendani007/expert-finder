@@ -29,7 +29,7 @@
                         processData: false,
                         success: function (data) {
                             console.log(data);
-                            // window.location.href = "http://localhost/login.php";  // Replace with actual success page
+                            window.location.href = "http://localhost/login.php";  // Replace with actual success page
                         }
                     });
                 } else {

@@ -23,7 +23,7 @@ include "./head.php";
             <div class="logo text-white text-center mb-4">
                 <h1 class="fw-bold">Expert Finder</h1>
             </div>
-            <form id="userProviderForm" enctype="multipart/form-data">
+            <form id="questionsForm" enctype="multipart/form-data">
                 <div class="row g-1">
                     <div class="col-md-6 form-floating mb-3">
                     <input type="hidden" class="form-control" id="userProvOption"
@@ -75,20 +75,8 @@ include "./head.php";
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
 
-    <script src="./assets/js/userProviderReg.js"></script>
-    <script>
-        function togglePassword(fieldId, toggleBtnId) {
-            var passwordField = document.getElementById(fieldId);
-            var toggleBtn = document.getElementById(toggleBtnId);
-            if (passwordField.type === "password") {
-                passwordField.type = "text";
-                toggleBtn.innerText = "Hide";
-            } else {
-                passwordField.type = "password";
-                toggleBtn.innerText = "Show";
-            }
-        }
-    </script>
+    <script src="./assets/js/questions.js"></script>
+  
 
 </body>
 

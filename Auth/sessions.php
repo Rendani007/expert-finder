@@ -4,6 +4,7 @@ $selectedOption = $_SESSION['selectedOption'];
 $provider_position = $_SESSION['provider'];
 $userType = $_SESSION["user_type"];
 $position = $_SESSION["position"];
+$providerId = $_SESSION['providerId'];
 
 if (!isset($selectedOption)) {
     // If 'selectedOption' is not set, redirect to 'login.php'

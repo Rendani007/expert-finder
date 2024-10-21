@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo 'Email sent successfully!';
     }
-    $_SESSION["userEmail"] = $emailInput;
+    // $_SESSION["userEmail"] = $emailInput;
     // Close cURL
     curl_close($ch);
 }

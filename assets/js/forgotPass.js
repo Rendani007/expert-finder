@@ -6,7 +6,7 @@
             let csrf_token = $("#csrf_token").val();  // Added $() to correctly select the element
             let emailInput = $("#emailInput").val();       // Added $() to correctly select the element
             let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
+            // console.log(emailInput);
 
             if (emailRegex.test(emailInput)) {   // Uncomment and check if email format is correct
                 let form_data = new FormData(document.getElementById("formEmail"));
@@ -21,11 +21,11 @@
                     cache: false,
                     processData: false,
                     success: function (data) {
-                        // console.log(data); // Handle the response from the server
+                        console.log(data); // Handle the response from the server
                         alert("an email has been sent to you, please click the link and reset your password");  // Replace with actual success page
                     }
                 });
-                
+
             } else {
                 alert("Please enter a valid email address.");  // Add validation feedback
             }

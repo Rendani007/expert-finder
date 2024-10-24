@@ -21,7 +21,7 @@ if (ini_get("session.use_cookies")) {
     );
 }
 
-// Return a JSON response to the AJAX request
+// Ensure no other output happens before sending JSON response
 header('Content-Type: application/json');
 echo json_encode(['status' => 'success']);
 exit();

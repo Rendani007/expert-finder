@@ -9,16 +9,17 @@
             let regSurname = $("#regSurname").val();
             let regEmail = $("#regEmail").val();
             let regPass = $("#regPass").val();
-            let regConfPass = $("#regConfPass").val();
+            let phoneNumber = $("#phoneNumber").val();
             let flexCheckDefault = $("#flexCheckDefault").is(':checked');//cant proceed until this checked box is selected
             let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             // let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
             let passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{4,}$/;
+            let phoneRegex = /^(?:\+27|0)[6-8][0-9]{8}$/;
 
             if (emailRegex.test(regEmail)) {
 
 
-                if (regPass === regConfPass) {
+                if (phoneNumber === phoneRegex) {
 
                     if (flexCheckDefault) {
 
@@ -30,6 +31,7 @@
                             form_data.append("regName", regName);
                             form_data.append("regSurname", regSurname);
                             form_data.append("regEmail", regEmail);
+                            form_data.append("phoneNumber", phoneNumber);
                             form_data.append("regPass", regPass);
 
 
@@ -58,7 +60,7 @@
                         alert("Please accept terms and conditions");
                     }
                 } else {
-                    alert("Please make sure that both password and confirm password match");
+                    alert("Invalid phone number! Please enter a valid South African phone number.");
                 }
 
             } else {

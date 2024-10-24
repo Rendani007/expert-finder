@@ -45,16 +45,16 @@ include "./head.php";
                     <input type="email" class="form-control" id="regEmail" placeholder="name@example.com" required>
                     <label for="floatingInput">Email address</label>
                 </div>
-     <div class="form-floating mb-3 position-relative">
+                <div class="form-floating mb-3">
+                    <input type="number" class="form-control" id="phoneNumber" placeholder="Enter phone number" min="0" required>
+                    <label for="phoneNumber">Phone Number</label>
+                </div>
+                <div class="form-floating mb-3 position-relative">
                     <input type="password" class="form-control" id="regPass" placeholder="Password">
                     <label for="regPass">Password</label>
                     <button type="button" class="toggle-btn" id="togglePass1" onclick="togglePassword('regPass', 'togglePass1')">Show</button>
                 </div>
-                <div class="form-floating mb-3 position-relative">
-                    <input type="password" class="form-control" id="regConfPass" placeholder="Confirm Password">
-                    <label for="regConfPass">Confirm Password</label>
-                    <button type="button" class="toggle-btn" id="togglePass2" onclick="togglePassword('regConfPass', 'togglePass2')">Show</button>
-                </div>
+               
                 <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                     <label class="form-check-label text-white" for="flexCheckDefault">

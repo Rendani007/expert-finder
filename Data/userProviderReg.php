@@ -11,21 +11,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $regName = htmlspecialchars(trim($_POST["regName"]));
         $regSurname = htmlspecialchars(trim($_POST["regSurname"]));
         $regEmail = htmlspecialchars(trim($_POST["regEmail"]));
+        $phoneNumber = htmlspecialchars(trim($_POST["phoneNumber"]));
         $regPass = htmlspecialchars(trim($_POST["regPass"]));
         $hashedPass = password_hash($regPass, PASSWORD_DEFAULT); // Hash the password
-        echo $userProvOption . "\n";
-        echo $regName . "\n";
-        echo $regSurname . "\n";
-        echo $regEmail . "\n";
-        echo $regPass . "\n";
+        // echo $userProvOption . "\n";
+        // echo $regName . "\n";
+        // echo $regSurname . "\n";
+        // echo $regEmail . "\n";
+        // echo $phoneNumber . "\n";
+        // echo $regPass . "\n";
 
         if ($userProvOption === "Provider") {
 
             echo "Youre the provider";
             //insert in provider db
             $providerId = uniqid("prid-");
-            $stmt = $conn->prepare("INSERT INTO `provider` (`provider_id`, `position`, `provider_name`, `provider_surname`, `email`, `password`) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssssss", $providerId, $userProvOption, $regName, $regSurname, $regEmail, $hashedPass);
+            $stmt = $conn->prepare("INSERT INTO `provider` (`provider_id`, `position`, `provider_name`, `provider_surname`, `email`,`phone_number`, `password`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssss", $providerId, $userProvOption, $regName, $regSurname, $regEmail,$phoneNumber , $hashedPass);
             if ($stmt->execute()) {
                 $_SESSION['providerId'] = $providerId;
                 $_SESSION['provider'] = $userProvOption;
@@ -37,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Youre the Client";
             //insert in user db
             $clientId = uniqid("clid-");
-            $stmt = $conn->prepare("INSERT INTO `client` (`client_id`, `position`, `client_name`, `client_surname`, `email`, `password`) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssssss", $clientId, $userProvOption, $regName, $regSurname, $regEmail, $hashedPass);
+            $stmt = $conn->prepare("INSERT INTO `client` (`client_id`, `position`, `client_name`, `client_surname`, `email`,`phone_number`, `password`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssss", $clientId, $userProvOption, $regName, $regSurname, $regEmail,$phoneNumber , $hashedPass);
             if ($stmt->execute()) {
                 $_SESSION['clientId'] = $clientId;
                 $_SESSION['provider'] = $userProvOption;

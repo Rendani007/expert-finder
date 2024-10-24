@@ -23,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (!$stmt) {
                 die("Error preparing statement: " . $conn->error);  // Debug: Check if statement is prepared correctly
             }
-
             $stmt->bind_param("s", $emailInput);
 
             // Execute the statement
@@ -60,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Check the client table first
         $userData = validateUser($conn, $emailInput, $password, 'client');
+
         if ($userData && $userData['position'] === "Client") {
             echo "You are the: " . $userData['position'];
                 $position = $userData['position'];
@@ -68,6 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             // If not found in the client table, check the provider table
             $userData = validateUser($conn, $emailInput, $password, 'provider');
+
             if ($userData && $userData['position'] === "Provider") {
                 echo "You are the: " . $userData['position'];
                 $position = $userData['position'];
